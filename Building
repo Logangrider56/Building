@@ -1,0 +1,39 @@
+protocol Building {
+    var type: String { get }
+    var rooms: Int { get set }
+    var price: Int { get }
+    var agent: String { get }
+}
+
+extension Building {
+    func salesSummary() {
+        print("\(rooms) room \(type) sold for $\(price) by \(agent)")
+    }
+}
+
+struct House: Building {
+    let type: String
+    var rooms: Int
+    let price: Int
+    let agent: String
+
+}
+
+struct Office: Building {
+    let type: String
+    var rooms: Int
+    let price: Int
+    let agent: String
+
+}
+var house = House(type: "House", rooms: 5, price: 100_000, agent: "Hailey")
+
+house.rooms = 5
+
+house.salesSummary()
+
+var office = Office(type: "Office", rooms: 27, price: 9_000_000, agent: "Logan")
+
+office.rooms = 27
+
+office.salesSummary()
